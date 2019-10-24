@@ -1,10 +1,8 @@
 # Quokka
 
 Is a small library that helps developers generate test data for the purpose
-of writing test/specs against there code which read and write data to the
+of writing tests/specs against their code which reads data from and writes data to the
 database.
-
-![Quokka](quokka.jpg)
 
 ## Limitations
 
@@ -55,13 +53,13 @@ profileTable = ChildTable "profiles" ["active"]
 
 As you can see from the example above the `accounts` table has been defined
 as both a parent table and child table. This is an example of how to represent
-as associative table (Table which represents a many to many relationship)
+an associative table (Table which represents a many to many relationship)
 using this library.
 
 ### Populating Parent Tables
 
-Once your tables are defined then you can define your functions which can
-take input data as a list of tuples which represent your data. Let's start
+Once your tables are defined then you can define functions which
+take a list of tuples representing your data. Let's start
 with the `users` table. The following example demonstrates how to define a
 function to insert users, and then how to use this function;
 
@@ -122,16 +120,6 @@ insert. `Quokka` uses concrete types in a very restrictive way. So the definitio
 of the `Account` child table cannot be used in the function call `buildWithManyRels`
 so we had to define the `accounts` table twice, once as `ParentTable` type, and
 once as a `ChildTable` type.
-
-### Insert Single Record
-
-In the examples presented we see that even though we insert a single row the API
-treats everything as a collection. This can be a bit tiresome when we only want
-to insert one tuple. For this we have a whole series of functions that deal with
-a single record. For example to insert 1 single parent tuple with no relations we
-use the function `build1` instead of `build`. Similarly to build a parent and
-child relationship with a single tuple you can use the `build1With1Rel` instead
-off the `buildWith1Rel` function so on and so forth.
 
 ## License
 
